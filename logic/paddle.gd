@@ -16,6 +16,8 @@ func _ready():
 		_ball_dir = 1
 	else:
 		_ball_dir = -1
+		
+	prints(n,_up,_down, n, _ball_dir)
 
 
 func _process(delta):
@@ -26,5 +28,7 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.name == "Ball":
-		# Assign new direction.
-		area.direction = Vector2(_ball_dir, randf() * 2 - 1).normalized()
+#		# Assign new direction.
+#		area.direction = Vector2(_ball_dir, randf() * 2 - 1).normalized()
+		area.direction.x = ceil(area.direction.x) * -1
+		area.direction.y = ceil(area.direction.y) * -1
